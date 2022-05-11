@@ -9,12 +9,15 @@ export default function ListPage() {
   // fetch the games on load and inject them into state
   useEffect(() => {
     async function getGameInfo() {
-      const games = await getGames();
+      const gameInfo = await getGames();
 
-      setGames(games);
+      console.log(gameInfo);
+
+      setGames(gameInfo);
     }
     getGameInfo();
-  });
+  }, []);
+
   return (
     <div className='list games'>
       {/* map through the games in state and render Game components */}

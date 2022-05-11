@@ -38,7 +38,7 @@ export async function createGame(game){
 export async function getGames() {
   const response = await client
     .from('board_games')
-    .select();
+    .select('*');
 
 
   return checkError(response);    
