@@ -11,8 +11,6 @@ export default function ListPage() {
     async function getGameInfo() {
       const gameInfo = await getGames();
 
-      console.log(gameInfo);
-
       setGames(gameInfo);
     }
     getGameInfo();
