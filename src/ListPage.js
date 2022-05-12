@@ -16,8 +16,6 @@ export default function ListPage() {
     getGameInfo();
   }, []);
 
-  console.log(games);
-
   return (
     <div className='list games'>
       {/* map through the games in state and render Game components */}
