@@ -4,7 +4,7 @@ import { createGame } from './services/fetch-utils';
 
 export default function CreatePage() {
   // you'll need the history hook from react-router-dom to do your redirecting in the handleSubmit
-  const history = useHistory();
+  const { push } = useHistory();
 
   // here's the state you'll need:
     // title;
@@ -18,17 +18,17 @@ export default function CreatePage() {
     genre: '',
     designer: '',
     description: '',
-    min_Players: 2,
-    max_Players: 10
+    min_players: 2,
+    max_players: 10
   });
 
   async function handleSubmit(e) {
     e.preventDefault();
 
     // create a game
-    const newGame = createGame(gameInForm);
+    createGame(gameInForm);
     // use history.push to send the user to the list page
-    history.pushState('/board-games');
+    push('/board-games');
   }
 
   return (
@@ -64,12 +64,12 @@ export default function CreatePage() {
         <label>
             Min Players
           {/* on change, set the min players in state */}
-          <input required name='min_players' onChange={(e) => setGameInForm({ ...gameInForm, min_Players: e.target.value })}/>
+          <input required name='min_players' onChange={(e) => setGameInForm({ ...gameInForm, min_players: e.target.value })}/>
         </label>
         <label>
             Max Players
           {/* on change, set the max players in state */}
-          <input required name='max_players' onChange={(e) => setGameInForm({ ...gameInForm, max_Players: e.target.value })}/>
+          <input required name='max_players' onChange={(e) => setGameInForm({ ...gameInForm, max_players: e.target.value })}/>
         </label>
         <label>
             Description
