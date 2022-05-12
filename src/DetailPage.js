@@ -4,7 +4,7 @@ import { updateGame, getGameById } from './services/fetch-utils';
 
 export default function DetailPage() {
   const { id } = useParams();
-  const { push } = useHistory();
+  const history = useHistory();
   const [gameInForm, setGameInForm] = useState({
     id: 0,
     title: '',
@@ -30,9 +30,9 @@ export default function DetailPage() {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    updateGame(gameInForm);
+    await updateGame(gameInForm);
 
-    push('/board-games');
+    history.push('/board-games');
   }
 
   return (

@@ -4,7 +4,7 @@ import { createGame } from './services/fetch-utils';
 
 export default function CreatePage() {
   // you'll need the history hook from react-router-dom to do your redirecting in the handleSubmit
-  const { push } = useHistory();
+  const history = useHistory();
 
   // here's the state you'll need:
     // title;
@@ -26,9 +26,9 @@ export default function CreatePage() {
     e.preventDefault();
 
     // create a game
-    createGame(gameInForm);
+    await createGame(gameInForm);
     // use history.push to send the user to the list page
-    push('/board-games');
+    history.push('/board-games');
   }
 
   return (
