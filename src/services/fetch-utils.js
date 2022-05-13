@@ -34,11 +34,20 @@ export async function createGame(game){
   return checkError(response);
 }
 
+export async function updateGame(game){
+  const response = await client
+    .from('board_games')
+    .update([game])
+    .match({ id: game.id });
+
+  return checkError(response);
+}
+
 
 export async function getGames() {
   const response = await client
     .from('board_games')
-    .select();
+    .select('*');
 
 
   return checkError(response);    
